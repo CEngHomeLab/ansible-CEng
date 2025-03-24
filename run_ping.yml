@@ -1,0 +1,9 @@
+---
+- name: my first
+  hosts: 192.168.1.208
+  tasks:
+
+  - name : ping
+    ansible.builtin.ping:
+      name: print message
+...
