@@ -12,5 +12,5 @@
 #
 # --03/22/2025
  [defaults]
- inventory = /home/u112277/MY-STUFF/my-ansible-work/ansible-CEng/inventory
+ inventory = /etc/ansible/inventory
 # --

@@ -1,0 +1,49 @@
+
+[local]
+localhost ansible_connections=local
+
+[usa_servers:children]
+west_server
+east_server
+midwest_server
+
+
+# 192.168.1.208 linux964server3.mynetworksettings.com
+# 192.168.1.212 linux964server5.mynetworksettings.com
+
+
+
+#------------ further investigate how to perform  on the control-server.
+[nyc_server] # control-server server1.
+# this is server1.
+192.168.1.233
+#192.168.1.233 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass="xdc$45C#@1177@fdw"
+#192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277
+#192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass=<password>
+#------------
+
+
+[west_server] # -managed-node server3.
+# we have a ssh key for user u112277(server1) on server3.
+192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_private_key_file="/home/u112277/.ssh/id_rsa"
+#192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass="xdc$45C#@1177@fdw"
+#192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277
+#192.168.1.208 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass=<password>
+
+
+[east_server] # -managed-node server5.
+# we have a ssh key for user u112277(server1) on server5.
+192.168.1.212 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass="xdc$45C#@1177@fdw"
+#192.168.1.212 ansible_connection=ssh ansible_ssh_user=u112277
+#192.168.1.212 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass=<password>
+
+
+[midwest_server] # -managed-node server7.
+# we have a ssh key for user u112277(server1) on server7.
+192.168.1.160 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass="xdc$45C#@1177@fdw"
+#192.168.1.160 ansible_connection=ssh ansible_ssh_user=u112277
+#192.168.1.160 ansible_connection=ssh ansible_ssh_user=u112277 ansible_ssh_pass=<password>
+
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python

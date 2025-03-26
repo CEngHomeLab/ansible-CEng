@@ -8,13 +8,13 @@
       ansible.builtin.yum:
         update_cache: yes
     
-    - name: "Task-3: installing ... apache2 package"
+    - name: "libapa"
       ansible.builtin.yum:
         name: apache2
         state: latest
 
-    - name: "Task-4: installing ... libapache2-mod-php package"
+    - name: "Task-3: installing ... apache2 package"
       ansible.builtin.yum:
-        name: libapache2-mod-php
+        name: apache2
         state: latest
 ...
